@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankAccounts.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,29 @@ namespace BankAccounts.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Payments> paymentsList = new List<Payments>();
+        List<string> paymentList = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void addPaymentClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                decimal amount = Convert.ToDecimal(amountInput.Text);
+                string info = infoInput.Text;
+                listBox.Items.Add(amount + " " + info);
+            }
+            catch
+            {
+                MessageBox.Show("rossz input");
+            }
+        }
+        private void openListWindowClick(object sender, RoutedEventArgs e)
+        {
+            ListWindow window = new ListWindow();
+            window.Show();
         }
     }
 }

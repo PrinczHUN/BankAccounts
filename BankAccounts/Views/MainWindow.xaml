@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankAccounts.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" ResizeMode="NoResize" Height="450" Width="600">
     <Grid>
-        <Button x:Name="account1Btn" Content="Account 1" HorizontalAlignment="Left" Margin="150,40,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="account2Btn" Content="Account 2" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="account3Btn" Content="Account 3" HorizontalAlignment="Right" Margin="0,40,150,0" VerticalAlignment="Top"/>
+        <Button x:Name="account1Btn" Content="Account 1" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="account2Btn" Content="Account 2" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="account3Btn" Content="Account 3" HorizontalAlignment="Right" Margin="0,50,100,0" VerticalAlignment="Top"/>
         <Label x:Name="amountLbl" Content="Amount:" HorizontalAlignment="Left" Margin="50,108,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="infoLbl" Content="Information:" HorizontalAlignment="Left" Margin="262,108,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="infoLbl" Content="Information:" HorizontalAlignment="Left" Margin="234,108,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="amountInput" HorizontalAlignment="Left" Margin="109,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="infoInput" HorizontalAlignment="Left" Margin="342,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239"/>
-        <Button x:Name="addPaymentBtn" Content="Add Payment" HorizontalAlignment="Left" Margin="675,109,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="listBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="50,149,50,80"/>
-        <Button x:Name="listDataBtn" Content="List or Print Data" HorizontalAlignment="Left" Margin="50,0,0,40" VerticalAlignment="Bottom"/>
-        <Button x:Name="sendTransactionBtn" Content="Send Transaction" HorizontalAlignment="Right" Margin="0,0,50,40" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="infoInput" HorizontalAlignment="Left" Margin="314,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <Button x:Name="addPaymentBtn" Content="Add Payment" HorizontalAlignment="Right" Margin="0,109,50,0" VerticalAlignment="Top" Click="addPaymentClick"/>
+        <ListBox x:Name="listBox" Margin="40,149,40,70"/>
+        <Button x:Name="listDataBtn" Content="List or Print Data" HorizontalAlignment="Left" Margin="40,0,0,40" VerticalAlignment="Bottom" Click="openListWindowClick"/>
+        <Button x:Name="sendTransactionBtn" Content="Send Transaction" HorizontalAlignment="Right" Margin="0,0,40,40" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>
