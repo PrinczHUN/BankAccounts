@@ -24,15 +24,13 @@ namespace BankAccounts.Views
     public partial class MainWindow : Window
     {
         List<Payment> payments = new List<Payment>();
-        public uint accountID { get; set; }
+        BankAccountsContext context = new BankAccountsContext();
+        public int accountID { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            using (BankAccountsContext context = new BankAccountsContext())
-            {
-                payments = context.Payments.ToList();
-            }
+            payments = context.Payments.ToList();
             accountID = 1;
         }
         private void sendTransactionClick(object sender, RoutedEventArgs e)
@@ -40,10 +38,11 @@ namespace BankAccounts.Views
             foreach (var item in listBox.Items)
             {
                 decimal amount = Convert.ToDecimal(item.ToString().Split(" ")[0]);
-                string info = item.ToString().Split(" ")[1];
-
-                //paymentsList.Add(new Payments(accountID,))
+                string info = String.Join(" ",item.ToString().Split(" ").Skip(1));
+                context.Payments.Add(new Payment(payments.Last().TransactionId + 1, accountID, DateTime.Now, amount, info));
             }
+            context.SaveChanges();
+            listBox.Items.Clear();
         }
 
         private void addPaymentClick(object sender, RoutedEventArgs e)
