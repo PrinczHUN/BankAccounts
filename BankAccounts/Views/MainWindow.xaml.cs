@@ -1,20 +1,9 @@
 ﻿using BankAccounts.Models;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BankAccounts.Views
 {
@@ -25,13 +14,13 @@ namespace BankAccounts.Views
     {
         List<Payment> payments = new List<Payment>();
         BankAccountsContext context = new BankAccountsContext();
+
         public int accountID { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
             payments = context.Payments.ToList();
-            accountID = 1;
         }
         private void sendTransactionClick(object sender, RoutedEventArgs e)
         {
@@ -51,7 +40,7 @@ namespace BankAccounts.Views
             {
                 decimal amount = 0;
                 if (amountInput.Text != "")
-                    amount = Convert.ToDecimal(amountInput.Text);
+                    amount = Convert.ToDecimal(Convert.ToDecimal(amountInput.Text).ToString("N2"));
                 else throw new Exception();
                 string info = "";
                 if (infoInput.Text.Length < 51 && infoInput.Text != "")
@@ -64,9 +53,16 @@ namespace BankAccounts.Views
                 MessageBox.Show("Wrong input");
             }
         }
+
+        private void accountClick(object sender, RoutedEventArgs e)
+        {
+            string btnText = ((Button)sender).Content.ToString();
+            accountID = Convert.ToInt32(btnText.Split(" ").Last());
+            MessageBox.Show($"Logged into Account: {accountID}");
+        }
         private void openListWindowClick(object sender, RoutedEventArgs e)
         {
-            ListWindow window = new ListWindow();
+            ListWindow window = new ListWindow(accountID);
             window.Show();
         }
     }

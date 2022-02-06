@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" ResizeMode="NoResize" Height="450" Width="600">
     <Grid>
-        <Button x:Name="account1Btn" Content="Account 1" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="account2Btn" Content="Account 2" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="account3Btn" Content="Account 3" HorizontalAlignment="Right" Margin="0,50,100,0" VerticalAlignment="Top"/>
+        <Button x:Name="account1Btn" Content="Account 1" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Click="accountClick"/>
+        <Button x:Name="account2Btn" Content="Account 2" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Click="accountClick"/>
+        <Button x:Name="account3Btn" Content="Account 3" HorizontalAlignment="Right" Margin="0,50,100,0" VerticalAlignment="Top" Click="accountClick"/>
         <Label x:Name="amountLbl" Content="Amount:" HorizontalAlignment="Left" Margin="50,108,0,0" VerticalAlignment="Top"/>
         <Label x:Name="infoLbl" Content="Information:" HorizontalAlignment="Left" Margin="234,108,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="amountInput" HorizontalAlignment="Left" Margin="109,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

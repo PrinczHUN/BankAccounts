@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Data.SqlClient;
 using System.Data;
 using BankAccounts.Models;
 
@@ -24,13 +13,13 @@ namespace BankAccounts.Views
     {
         List<Payment> payments = new List<Payment>();
         List<Transaction> transactions = new List<Transaction>();
-        public ListWindow()
+        public ListWindow(int accountID)
         {
             InitializeComponent();
             using (BankAccountsContext context = new BankAccountsContext())
             {
-                payments = context.Payments.ToList();
-                transactions = context.Transactions.ToList();
+                payments = context.Payments.Where(x => x.AccountId == accountID).ToList();
+                transactions = context.Transactions.Where(x => x.AccountId == accountID).ToList();
             }
         }
 
