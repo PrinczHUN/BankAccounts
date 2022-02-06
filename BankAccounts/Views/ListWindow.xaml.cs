@@ -4,6 +4,7 @@ using System.Windows;
 using System.Data;
 using BankAccounts.Models;
 using System.Windows.Controls;
+using System.IO;
 using System;
 
 namespace BankAccounts.Views
@@ -27,7 +28,19 @@ namespace BankAccounts.Views
 
         private void printListClick(object sender, RoutedEventArgs e)
         {
-            
+            try
+            {
+                IsEnabled = false;
+                PrintDialog printD = new PrintDialog();
+                if (printD.ShowDialog() == true)
+                {
+                    printD.PrintVisual(dataGrid, "Data");
+                }
+            }
+            finally
+            {
+                IsEnabled = true;
+            }
         }
 
         private void listClick(object sender, RoutedEventArgs e)
