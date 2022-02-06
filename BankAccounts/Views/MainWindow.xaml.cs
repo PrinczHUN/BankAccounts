@@ -1,6 +1,8 @@
 ﻿using BankAccounts.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,22 +24,43 @@ namespace BankAccounts.Views
     public partial class MainWindow : Window
     {
         List<Payments> paymentsList = new List<Payments>();
-        List<string> paymentList = new List<string>();
+
+        public uint accountID { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            
+            accountID = 1;
         }
+        private void sendTransactionClick(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in listBox.Items)
+            {
+                decimal amount = Convert.ToDecimal(item.ToString().Split(" ")[0]);
+                string info = item.ToString().Split(" ")[1];
+
+                //paymentsList.Add(new Payments(accountID,))
+            }
+        }
+
         private void addPaymentClick(object sender, RoutedEventArgs e)
         {
             try
             {
-                decimal amount = Convert.ToDecimal(amountInput.Text);
-                string info = infoInput.Text;
+                decimal amount = 0;
+                if (amountInput.Text != "")
+                    amount = Convert.ToDecimal(amountInput.Text);
+                else throw new Exception();
+                string info = "";
+                if (infoInput.Text.Length < 51 && infoInput.Text != "")
+                    info = infoInput.Text;
+                else throw new Exception();
                 listBox.Items.Add(amount + " " + info);
             }
             catch
             {
-                MessageBox.Show("rossz input");
+                MessageBox.Show("Wrong input");
             }
         }
         private void openListWindowClick(object sender, RoutedEventArgs e)

@@ -17,7 +17,7 @@
         <Button x:Name="addPaymentBtn" Content="Add Payment" HorizontalAlignment="Right" Margin="0,109,50,0" VerticalAlignment="Top" Click="addPaymentClick"/>
         <ListBox x:Name="listBox" Margin="40,149,40,70"/>
         <Button x:Name="listDataBtn" Content="List or Print Data" HorizontalAlignment="Left" Margin="40,0,0,40" VerticalAlignment="Bottom" Click="openListWindowClick"/>
-        <Button x:Name="sendTransactionBtn" Content="Send Transaction" HorizontalAlignment="Right" Margin="0,0,40,40" VerticalAlignment="Bottom"/>
+        <Button x:Name="sendTransactionBtn" Content="Send Transaction" HorizontalAlignment="Right" Margin="0,0,40,40" VerticalAlignment="Bottom" Click="sendTransactionClick"/>
 
     </Grid>
 </Window>

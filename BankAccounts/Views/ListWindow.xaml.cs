@@ -31,21 +31,11 @@ namespace BankAccounts.Views
         {
             try
             {
-                SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\princ\\source\\repos\\BankAccounts\\BankAccounts\\DataSources\\BankAccountsDatabase.mdf;Integrated Security=True;Connect Timeout=30");
-                con.Open();
-
-                SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Payments";
-
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-
-                dataGrid.ItemsSource = dt.DefaultView;
+                
             }
             catch
             {
-                MessageBox.Show("db error");
+                MessageBox.Show("Database error");
             }
         }
     }
