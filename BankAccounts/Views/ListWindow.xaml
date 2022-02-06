@@ -9,5 +9,6 @@
     <Grid>
         <Button x:Name="listPaymentsBtn" Content="List Payments" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Click="listPaymentsClick"/>
         <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="40,127,40,40"/>
+        <Button x:Name="listTransactionsBtn" Content="List Transactions" HorizontalAlignment="Right" Margin="0,50,100,0" VerticalAlignment="Top" Click="listTransactionsClick"/>
     </Grid>
 </Window>

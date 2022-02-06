@@ -23,14 +23,16 @@ namespace BankAccounts.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Payments> paymentsList = new List<Payments>();
-
+        List<Payment> payments = new List<Payment>();
         public uint accountID { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            
+            using (BankAccountsContext context = new BankAccountsContext())
+            {
+                payments = context.Payments.ToList();
+            }
             accountID = 1;
         }
         private void sendTransactionClick(object sender, RoutedEventArgs e)
